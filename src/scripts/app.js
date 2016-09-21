@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom';
 import Backbone from 'backbone';
 
 
-// fetch method, returns es6 promises
-// if you uncomment 'universal-utils' below, you can comment out this line
-import fetch from "isomorphic-fetch"
 
 //Components
 import {Header} from './todo-header';
@@ -37,6 +34,7 @@ const app = function() {
 		},
 
 		redirect: function() {
+			console.log('ROUTER: Redirecting...')
 			location.hash = 'allTasks'
 		},
 
