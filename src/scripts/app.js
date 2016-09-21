@@ -7,7 +7,7 @@ import {TodoList} from './todo-list'
 
 const app = function() {
 
-	ReactDOM.render(<Header />,document.querySelector('.app-container'))
+	ReactDOM.render(<Header />,document.querySelector('.container'))
 }
 
 app()
