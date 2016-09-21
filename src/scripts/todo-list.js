@@ -1,11 +1,22 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
+
 
 //Components
-import {Header} from './components'
+import {Header} from './todo-header'
+
 
 export const TodoList = React.createClass({
 
 	render: function() {
-		return <h2>Some todos gone go heyah</h2>
+		return (
+			<div className="container-fluid">
+				<table>
+					<Header />
+
+				</table>
+			</div>
+		)
 	}
 })
+

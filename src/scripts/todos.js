@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 
 const todos = [
 {
@@ -11,10 +12,4 @@ const todos = [
 }
 
 ]
-
-export const Header = React.createClass({
-		render: () => {
-			return <h3>React ToDo's</h3>
-		}
-})
 
