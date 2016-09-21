@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 //Components
 import {todos} from './todos';
 
+
 export const TodoList = React.createClass({
 
 	render: function() {
@@ -52,7 +53,7 @@ export const Header = React.createClass({
 	render: function(){
 		return(
 			<div className="jumbotron">
-        		<h1>To Act!</h1>
+        		<h1>To Act!</h1> <img src={"../images/batlight.svg"} />
                 <h3>A to-do list for heroes</h3>
         		<p className="lead">The world isn't going to save itself... What will you do next?</p>
         		<div className="btn-container">

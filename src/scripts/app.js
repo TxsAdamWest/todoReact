@@ -2,10 +2,8 @@ import React, {component} from 'react';
 import ReactDOM from 'react-dom';
 import Backbone from 'backbone';
 
-
-
 //Components
-import {Header} from './todo-header';
+// import {Header} from './todo-header';
 import {TodoList} from './todo-list';
 import {todos} from './todos';
 
