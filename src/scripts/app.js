@@ -1,13 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const app = function() {
+//Components
+import {Header} from './components'
 
-	const Header = React.createClass({
-		render: () => {
-			return <h1>YOLO</h1>
-		}
-	})
+const app = function() {
 
 	ReactDOM.render(<Header/>,document.querySelector('.container'))
 }
