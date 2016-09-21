@@ -12,6 +12,11 @@ export const TodoList = React.createClass({
 		return (
 			<div className="container-fluid">
 				<table>
+					<thead>
+						<th>Task</th>
+						<th>Action</th>
+					</thead>
+
 					<Header />
 
 				</table>
