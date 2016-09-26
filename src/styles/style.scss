@@ -4,15 +4,33 @@
 	box-sizing: border-box;
 }
 
+//Jumbotron Contents
 .btn-container {
 	margin: 0 auto;
 }
 
 .btn {
-	margin: 0 2px;
-	// text-align: center;
+	margin: 0 1px;
 }
 
-body {
-	// background: lime;
+.jumbotron {
+	img {
+		width: 100%;
+	}
+}
+
+.task-bar {
+	text-align: right;
+}
+
+.task-bar{
+	input {
+		line-height: 45px;
+		width: 80%;
+		outline: none;
+	}
+
+	input:focus {
+		background-color: cyan;
+	}
 }

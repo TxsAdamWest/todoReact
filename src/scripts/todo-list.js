@@ -1,23 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 
-//Components
+
+import React , { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { Image } from 'react';
+
+//Models
 import {todos} from './todos';
 
-
-export const TodoList = React.createClass({
-
-	render: function() {
-		return (
-			<div className="container-fluid">
-				<Nav />
-				<Header />	
-
-			</div>
-		)
-	}
-})
-
+//Components
 export const Nav = React.createClass({
 	render: function(){
 		return(
@@ -30,7 +20,7 @@ export const Nav = React.createClass({
 			            <span className="icon-bar"></span>
 			            <span className="icon-bar"></span>
 			          </button>
-			          <a className="navbar-brand" href="#">Project name</a>
+			          <a className="navbar-brand" href="#">To Act!</a>
 			        </div>
 			        <div id="navbar" className="navbar-collapse collapse">
 			          <form className="navbar-form navbar-right">
@@ -49,20 +39,65 @@ export const Nav = React.createClass({
 	}
 })
 
+export const TaskBar = React.createClass({
+	render: function(){
+		return(
+			<div>
+				<input type="text" placeholder="What task is next?" /><a className="btn btn-lg btn-success" href="#" role="button">Add task</a> />
+			</div>
+		)
+	}
+})
+
 export const Header = React.createClass({
 	render: function(){
 		return(
 			<div className="jumbotron">
-        		<h1>To Act!</h1> <img src={"../images/batlight.svg"} />
+        		<div className="container">
+        			<img src={'http://i.imgur.com/iSreVyD.png'} />
+        		</div>
                 <h3>A to-do list for heroes</h3>
         		<p className="lead">The world isn't going to save itself... What will you do next?</p>
-        		<div className="btn-container">
-        		<a className="btn btn-lg btn-success" href="#" role="button">Add task</a>
-        		<a className="btn btn-lg btn-info" href="#" role="button">Edit task</a>
-        		<a className="btn btn-lg btn-danger" href="#" role="button">Remove task</a>
-        		</div>
+        		
       		</div>
 		)
 	}
 })
+
+//Views
+export const SplashView = React.createClass({
+
+	render: function() {
+		return (
+			<div className="container-fluid">
+				<Nav />
+				<Header />	
+
+			</div>
+		)
+	}
+})
+
+//AllTasks
+export const TodoListView = React.createClass({
+
+	render: function() {
+		return (
+			<div className="container-fluid">
+				<Nav />
+				<h3>some tasks</h3>	
+			</div>
+		)
+	}
+
+})
+
+
+
+
+
+// <a className="btn btn-lg btn-info" href="#" role="button">Edit task</a>
+// <a className="btn btn-lg btn-danger" href="#" role="button">Remove task</a>
+
+
 
