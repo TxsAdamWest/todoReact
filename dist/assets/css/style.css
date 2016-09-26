@@ -1,1 +1,1 @@
-*{font-family:Helvetica, Arial, sans-serif;box-sizing:border-box}.btn-container{margin:0 auto}.btn{margin:0 1px}.jumbotron img{width:100%}.task-bar{text-align:right}.task-bar input{line-height:45px;width:80%;outline:none}.task-bar input:focus{background-color:cyan}
+*{font-family:Helvetica, Arial, sans-serif;box-sizing:border-box}.btn{margin:0 1px}.jumbotron img{width:100%}.todo-container{padding-top:80px}.task-bar{text-align:right;display:block}.task-bar input{line-height:45px;width:80%;outline:none}.task-bar input:focus{background-color:cyan}

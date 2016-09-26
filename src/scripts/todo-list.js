@@ -7,6 +7,35 @@ import { Image } from 'react';
 //Models
 import {todos} from './todos';
 
+
+
+//Views
+export const SplashView = React.createClass({
+
+	render: function() {
+		return (
+			<div className="container-fluid">
+				<Nav />
+				<Header />	
+
+			</div>
+		)
+	}
+})
+
+//AllTasks
+export const TodoListView = React.createClass({
+render: function() {
+		return (
+			<div className="container-fluid">
+				<Nav />
+				<TaskBar />	
+			</div>
+		)
+	}
+
+})
+
 //Components
 export const Nav = React.createClass({
 	render: function(){
@@ -39,12 +68,23 @@ export const Nav = React.createClass({
 	}
 })
 
+// <input type="text" placeholder="What task is next?" /><a className="btn btn-lg btn-success" href="#" role="button">Add task</a>
+
+
 export const TaskBar = React.createClass({
 	render: function(){
 		return(
-			<div>
-				<input type="text" placeholder="What task is next?" /><a className="btn btn-lg btn-success" href="#" role="button">Add task</a> />
-			</div>
+			
+        		<div className="container todo-container">
+
+
+        			<div className="task-bar">
+        				<a className="btn btn-lg btn-info" href="#" role="button">Edit task</a>
+        				<a className="btn btn-lg btn-info" href="#completeTasks" role="button">See Completed</a>
+						<a className="btn btn-lg btn-danger" href="#incompleteTasks" role="button">Current Tasks</a>
+					</div>
+        		</div>
+      	
 		)
 	}
 })
@@ -64,40 +104,7 @@ export const Header = React.createClass({
 	}
 })
 
-//Views
-export const SplashView = React.createClass({
 
-	render: function() {
-		return (
-			<div className="container-fluid">
-				<Nav />
-				<Header />	
-
-			</div>
-		)
-	}
-})
-
-//AllTasks
-export const TodoListView = React.createClass({
-
-	render: function() {
-		return (
-			<div className="container-fluid">
-				<Nav />
-				<TaskBar />	
-			</div>
-		)
-	}
-
-})
-
-
-
-
-
-// <a className="btn btn-lg btn-info" href="#" role="button">Edit task</a>
-// <a className="btn btn-lg btn-danger" href="#" role="button">Remove task</a>
 
 
 
