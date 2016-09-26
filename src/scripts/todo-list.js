@@ -85,7 +85,7 @@ export const TodoListView = React.createClass({
 		return (
 			<div className="container-fluid">
 				<Nav />
-				<h3>some tasks</h3>	
+				<TaskBar />	
 			</div>
 		)
 	}

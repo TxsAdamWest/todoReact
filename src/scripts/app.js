@@ -41,7 +41,7 @@ const app = function() {
 
 		redirect: function() {
 			console.log('ROUTER: Redirecting...')
-			location.hash = 'allTasks'
+			location.hash = 'signin'
 		},
 
 		initialize: function() {
