@@ -29,9 +29,22 @@
 	text-align: right;
 	display: block;
 
+		.btn {
+			width: 33%;
+			margin: 2px 1px;
+		}
+}
+
+.task-adder {
+
+	.btn{
+		width: 20%;
+	}
+
 		input {
+			border: none;
 			line-height: 45px;
-			width: 80%;
+			width: 79%;
 			outline: none;
 		}
 
@@ -39,26 +52,8 @@
 			background-color: cyan;
 		}
 
-		.btn {
-			width: 33%;
-			margin: 2px 1px;
-		}
 }
 
-@media(min-width: @screen-sm-min){
-
-	.task-bar{
-	text-align: right;
-	display: block;
-
-		.btn {
-			width: 33%;
-			margin: 2px 1px;
-			display: block;
-		}
-	}
-
-}
 
 
 

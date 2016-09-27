@@ -69,7 +69,7 @@ export const Nav = React.createClass({
 export const TaskAdder = React.createClass({
 	render: function(){
 		return(
-			<div>
+			<div className="task-adder">
 				<input type="text" placeholder="What task is next?" /><a className="btn btn-lg btn-success" href="#" role="button">Add task</a>
 			</div>
 		)
@@ -84,7 +84,7 @@ export const TaskBar = React.createClass({
         		<div className="container todo-container">
         				<TaskAdder />
         			<div className="task-bar">
-        				<a className="btn btn-lg btn-default" href="#" role="button">All</a>
+        				<a className="btn btn-lg btn-default" href="#allTasks" role="button">All</a>
         				<a className="btn btn-lg btn-info" href="#incompleteTasks" role="button">Current</a>
         				<a className="btn btn-lg btn-primary" href="#completeTasks" role="button">Completed</a>
 					</div>
