@@ -24,6 +24,7 @@ export const SplashView = React.createClass({
 //AllTasks
 export const TodoListView = React.createClass({
 render: function() {
+		console.log(this.props)
 		return (
 			<div className="container-fluid">
 				<Nav />
@@ -67,10 +68,17 @@ export const Nav = React.createClass({
 })
 
 export const TaskAdder = React.createClass({
+	_handleAddTask: function(event){
+		event.preventDefault();
+		console.log("Form submitted!")
+	},
+
 	render: function(){
 		return(
 			<div className="task-adder">
-				<input type="text" placeholder="What task is next?" /><a className="btn btn-lg btn-success" href="#" role="button">Add task</a>
+				<form onSubmit={this._handleAddTask}>
+					<input className="col-md-8" type="text" placeholder="What task is next?" /><button className="col-md-4 btn btn-lg btn-success">Add task</button>
+				</form>
 			</div>
 		)
 	}
@@ -80,7 +88,6 @@ export const TaskAdder = React.createClass({
 export const TaskBar = React.createClass({
 	render: function(){
 		return(
-			
         		<div className="container todo-container">
         				<TaskAdder />
         			<div className="task-bar">
