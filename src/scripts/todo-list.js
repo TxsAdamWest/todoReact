@@ -21,7 +21,6 @@ export const SplashView = React.createClass({
 	}
 })
 
-//AllTasks
 export const TodoListView = React.createClass({
 render: function() {
 		console.log(this.props)
@@ -76,8 +75,11 @@ export const TaskAdder = React.createClass({
 	render: function(){
 		return(
 			<div className="task-adder">
+				<div className="container">
+					<img className="hero" src={"http://i.imgur.com/EROSbyw.gif"} />
+				</div>
 				<form onSubmit={this._handleAddTask}>
-					<input className="col-md-8" type="text" placeholder="What task is next?" /><button className="col-md-4 btn btn-lg btn-success">Add task</button>
+					<input className="col-md-8" type="text" placeholder="What task is next?" /><button className="col-md-4 btn btn-lg btn-default">Add task</button>
 				</form>
 			</div>
 		)
@@ -91,7 +93,7 @@ export const TaskBar = React.createClass({
         		<div className="container todo-container">
         				<TaskAdder />
         			<div className="task-bar">
-        				<a className="btn btn-lg btn-default" href="#allTasks" role="button">All</a>
+        				<a className="btn btn-lg btn-warning" href="#allTasks" role="button">All</a>
         				<a className="btn btn-lg btn-info" href="#incompleteTasks" role="button">Current</a>
         				<a className="btn btn-lg btn-primary" href="#completeTasks" role="button">Completed</a>
 					</div>
@@ -116,7 +118,7 @@ export const Header = React.createClass({
         			<img src={'http://i.imgur.com/iSreVyD.png'} />
         		</div>
                 <h3>A to-do list for heroes</h3>
-        		<p className="lead">The world isn't going to save itself... What will you do next?</p>
+        		<p className="lead">The world isn't going to save itself... what will you do next?</p>
         		
       		</div>
 		)
