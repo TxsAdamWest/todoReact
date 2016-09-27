@@ -77,10 +77,11 @@ export const TaskAdder = React.createClass({
 			<div className="task-adder">
 				<div className="container">
 					<img className="hero" src={"http://i.imgur.com/EROSbyw.gif"} />
-				</div>
+				
 				<form onSubmit={this._handleAddTask}>
 					<input className="col-md-8" type="text" placeholder="What task is next?" /><button className="col-md-4 btn btn-lg btn-default">Add task</button>
 				</form>
+				</div>
 			</div>
 		)
 	}
