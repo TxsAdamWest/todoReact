@@ -1,5 +1,3 @@
-
-
 import React , { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Image } from 'react';
@@ -68,7 +66,15 @@ export const Nav = React.createClass({
 	}
 })
 
-// <input type="text" placeholder="What task is next?" /><a className="btn btn-lg btn-success" href="#" role="button">Add task</a>
+export const TaskAdder = React.createClass({
+	render: function(){
+		return(
+			<div>
+				<input type="text" placeholder="What task is next?" /><a className="btn btn-lg btn-success" href="#" role="button">Add task</a>
+			</div>
+		)
+	}
+})
 
 
 export const TaskBar = React.createClass({
@@ -76,12 +82,18 @@ export const TaskBar = React.createClass({
 		return(
 			
         		<div className="container todo-container">
-
-
+        				<TaskAdder />
         			<div className="task-bar">
-        				<a className="btn btn-lg btn-info" href="#" role="button">Edit task</a>
-        				<a className="btn btn-lg btn-info" href="#completeTasks" role="button">See Completed</a>
-						<a className="btn btn-lg btn-danger" href="#incompleteTasks" role="button">Current Tasks</a>
+        				<a className="btn btn-lg btn-default" href="#" role="button">All</a>
+        				<a className="btn btn-lg btn-info" href="#incompleteTasks" role="button">Current</a>
+        				<a className="btn btn-lg btn-primary" href="#completeTasks" role="button">Completed</a>
+					</div>
+
+					<div className="jumbotron">
+						
+						<ul>
+							<li>Task1</li>
+						</ul>
 					</div>
         		</div>
       	

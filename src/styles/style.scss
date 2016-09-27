@@ -38,7 +38,29 @@
 		input:focus {
 			background-color: cyan;
 		}
+
+		.btn {
+			width: 33%;
+			margin: 2px 1px;
+		}
 }
+
+@media(min-width: @screen-sm-min){
+
+	.task-bar{
+	text-align: right;
+	display: block;
+
+		.btn {
+			width: 33%;
+			margin: 2px 1px;
+			display: block;
+		}
+	}
+
+}
+
+
 
 
 

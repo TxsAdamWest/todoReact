@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import Backbone from 'backbone';
 
 //Components
-// import {Header} from './todo-header';
 import {SplashView} from './todo-list';
 import {TodoListView} from './todo-list';
+
+//Models
 import {todos} from './todos';
+import {TaskCollection} from './models';
 
 
 const app = function() {
@@ -28,7 +30,7 @@ const app = function() {
 
 		showAllTasks: function() {
 			console.log('ROUTER: >> showAllTasks')
-			ReactDOM.render(<TodoListView />,document.querySelector('.container'))
+			ReactDOM.render(<TodoListView tasklist={new TaskCollection()}/>,document.querySelector('.container'))
 		},
 
 		showCompleteTasks: function() {
