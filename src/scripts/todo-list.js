@@ -33,9 +33,14 @@ export const TodoListView = React.createClass({
 
 	_addTask: function(newTask){
 		console.log("_addTask fired!")
-		console.log(this.state)
-		console.log(TaskModel)
+		// console.log(this.state)
+		// console.log(TaskModel)
 		this.state.taskColl.add(new TaskModel(newTask))
+		this._updater()
+	},
+
+	_removeTask: function(targetModel){
+		this.state.taskColl.remove(targetModel)
 		this._updater()
 	},
 
@@ -53,7 +58,7 @@ export const TodoListView = React.createClass({
 					<Nav />
 					<TaskBar />	
 					<TaskAdder adderFunc={this._addTask} />
-					<TaskList updater={this._updater} taskColl={taskColl}/>
+					<TaskList updater={this._updater} remover={this._removeTask} taskColl={taskColl}/>
 				</div>
 			)
 		}
@@ -134,11 +139,11 @@ export const TaskAdder = React.createClass({
 
 export const TaskList = React.createClass({
 	_createTask: function(model){
-		return <Task updater={this.props._updater} taskModel={model} key={this.cid}/>
+		return <Task updater={this.props._updater} remover={this.props.remover} taskModel={model} key={this.cid}/>
 	},
 
 	render: function() {
-		console.log(this.props.taskColl)
+		// console.log(this.props.taskColl)
 		return 	<div className="jumbotron">
 					{this.props.taskColl.map(this._createTask)}				
 			   	</div>
@@ -146,15 +151,21 @@ export const TaskList = React.createClass({
 })
 
 export const Task = React.createClass({
+	_deleteTask: function(){
+		this.props.remover(this.props.taskModel)
+	},
 
 	render: function(){
 		var taskModel = this.props.taskModel
-
-		return 
+		console.log(taskModel, "<< rendering taskModel")
+		return (
 			<div className="task">
 				<p>{taskModel.get("name")}</p>
 				<p>{taskModel.get("status")}</p>
+				<button onClick={this._deleteTask} className="btn btn-lg btn-danger"> X </button>
 			</div>
+		)
+			
 
 	}
 })
