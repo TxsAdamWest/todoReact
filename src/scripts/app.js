@@ -24,7 +24,7 @@ const app = function() {
 
 		showSignIn: function() {
 			console.log('ROUTER: >> showSignIn')
-			ReactDOM.render(<SplashView />,document.querySelector('.container'))
+			ReactDOM.render(<SplashView />, document.querySelector('.container'))
 		},
 
 

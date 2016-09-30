@@ -72,6 +72,11 @@ export const TaskAdder = React.createClass({
 		console.log("Form submitted!")
 	},
 
+	_handleChange: function(event){
+		let task = (event.target.value);
+		console.log(task);
+	},
+
 	render: function(){
 		return(
 			<div className="task-adder">
@@ -79,7 +84,7 @@ export const TaskAdder = React.createClass({
 					<img className="hero" src={"http://i.imgur.com/EROSbyw.gif"} />
 				
 				<form onSubmit={this._handleAddTask}>
-					<input className="col-md-8" type="text" placeholder="What task is next?" /><button className="col-md-4 btn btn-lg btn-default">Add task</button>
+					<input onChange={this._handleChange} className="col-md-8" type="text" placeholder="What task is next?" /><button className="col-md-4 btn btn-lg btn-default">Add task</button>
 				</form>
 				</div>
 			</div>
