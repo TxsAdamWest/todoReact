@@ -31,6 +31,15 @@ export const TodoListView = React.createClass({
 		}
 	},
 
+	_viewSelect: function(event){
+		console.log("_viewSelect fired!")
+		var viewValue = event.target.value
+
+		this.setState({
+			viewType: viewValue
+		})
+	},
+
 	_addTask: function(newTask){
 		console.log("_addTask fired!")
 		// console.log(this.state)
@@ -56,7 +65,7 @@ export const TodoListView = React.createClass({
 			return (
 				<div className="container-fluid">
 					<Nav />
-					<TaskBar />	
+					<TaskBar viewSelector={this._viewSelect}/>	
 					<TaskAdder adderFunc={this._addTask} />
 					<TaskList updater={this._updater} remover={this._removeTask} taskColl={taskColl}/>
 				</div>
@@ -169,16 +178,19 @@ export const Task = React.createClass({
 	},
 
 	_checkComplete: function(taskModel) {
-	  // console.log(this.props, "<< gimme my props")
-   //    console.log("_selectStatus fired!")
-   //    console.log(this.props.taskModel, "<< isComplete status BEFORE")
+      console.log("_selectStatus fired!")
 
       	if(this.props.taskModel.get('isComplete') === false){
       		this.props.taskModel.set({isComplete: true})
-      		// console.log(this.props.taskModel.get('isComplete'), "<< isComplete status AFTER")
       		this.props.updater()
+      		console.log("New isComplete status is >> " , this.props.taskModel.get("isComplete"))
+
   		}
-  		// console.log(this.props.taskModel, " << One last check.")
+  		else {
+      		this.props.taskModel.set({isComplete: false})
+      		this.props.updater()
+      		console.log("New isComplete status is >> " , this.props.taskModel.get("isComplete"))
+  		}
      },
 
 	render: function(){
@@ -199,9 +211,9 @@ export const TaskBar = React.createClass({
 		return(
         		<div className="container todo-container">
         			<div className="task-bar">
-        				<a className="btn btn-lg btn-warning" href="#home" role="button">All</a>
-        				<a className="btn btn-lg btn-info" href="#home" role="button">Current</a>
-        				<a className="btn btn-lg btn-primary" href="#home" role="button">Completed</a>
+        				<button className="btn btn-lg btn-warning" onClick={this.props.viewSelector} >All</button>
+        				<button className="btn btn-lg btn-info" onClick={this.props.viewSelector} >Current</button>
+        				<button className="btn btn-lg btn-primary" onClick={this.props.viewSelector} >Completed</button>
 					</div>
 				</div>
 
