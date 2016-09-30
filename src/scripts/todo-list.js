@@ -99,27 +99,29 @@ export const Nav = React.createClass({
 
 export const TaskAdder = React.createClass({
 
-	// Form Verison
-	// _handleAddTask: function(event){
-	// 	event.preventDefault();
-	// 	console.log('_handleAddTask fired! Event is >> ', event)
-	// 	var taskEntry = event.target.value
-	// 	console.log("Form submitted!", taskEntry)
-	// 	// this.setState({ taskColl: this.state.taskColl + 1})
-
-	// 	this.props.adderFunc(taskEntry)
-		
-	// },
-
+	// Form Version
 	_handleAddTask: function(event){
-		if(event.keyCode === 13){
-			console.log('_handleAddTask fired! Event is >> ', event)
-			var taskEntry = event.target.value
-			console.log("taskEntry is: ", taskEntry)
+		var taskForm =document.getElementById("submit")
+		event.preventDefault();
+		console.log('_handleAddTask fired! Event is >> ', event)
+		var taskEntry = taskForm.elements[0].value
+		console.log("Form submitted!", taskEntry)
 
-			this.props.adderFunc(taskEntry)
-		}
+		this.props.adderFunc(taskEntry)
+		taskForm.reset()
 	},
+
+	// _handleAddTask: function(event){
+	// 	console.log(event)
+	// 	if(event.keyCode === 13){
+	// 		console.log('_handleAddTask fired! Event is >> ', event)
+	// 		var taskEntry = event.target.value
+	// 		console.log("taskEntry is: ", taskEntry)
+
+	// 		this.props.adderFunc(taskEntry)
+	// 		event.target.value = ''
+	// 	}
+	// },
 
 	// _handleChange: function(event){
 	// 	if(event.keyCode === 13){
@@ -137,8 +139,8 @@ export const TaskAdder = React.createClass({
 				<div className="container">
 					<img className="hero" src={"http://i.imgur.com/EROSbyw.gif"} />
 				
-				<form onSubmit={this._handleAddTask}>
-					<input onKeyDown={this._handleAddTask} className="col-md-8" type="text" placeholder="What task is next?" />
+				<form onSubmit={this._handleAddTask} id="submit">
+					<input className="col-md-8" type="text" placeholder="What task is next?" />
 					<button className="col-md-4 btn btn-lg btn-default">Add task</button>
 				</form>
 
