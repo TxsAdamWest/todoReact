@@ -69,12 +69,15 @@ export const Nav = React.createClass({
 export const TaskAdder = React.createClass({
 	_handleAddTask: function(event){
 		event.preventDefault();
-		console.log("Form submitted!")
+		var task = this.state.task
+		console.log("Form submitted!", task)
+
 	},
 
 	_handleChange: function(event){
-		let task = (event.target.value);
+		var task = (event.target.value);
 		console.log(task);
+		this.setState({ task: task });
 	},
 
 	render: function(){
@@ -83,8 +86,8 @@ export const TaskAdder = React.createClass({
 				<div className="container">
 					<img className="hero" src={"http://i.imgur.com/EROSbyw.gif"} />
 				
-				<form onSubmit={this._handleAddTask}>
-					<input onChange={this._handleChange} className="col-md-8" type="text" placeholder="What task is next?" /><button className="col-md-4 btn btn-lg btn-default">Add task</button>
+				<form onSubmit={this._handleAddTask.bind(this)}>
+					<input onChange={this._handleChange} value={this.state.task} className="col-md-8" type="text" placeholder="What task is next?" /><button className="col-md-4 btn btn-lg btn-default">Add task</button>
 				</form>
 				</div>
 			</div>
