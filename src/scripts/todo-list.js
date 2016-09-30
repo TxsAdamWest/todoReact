@@ -26,13 +26,13 @@ export const TodoListView = React.createClass({
 
 	getInitialState: function(){
 		return {
-			// taskColl: this.props.taskColl,
-			taskColl: 1,
+			taskColl: this.props.taskColl,
+			// taskColl: 1,
 			viewType: 'all'
 		}
 	},
 
-	_addTask: function(){
+	_addTask: function(task){
 		this.state.taskColl.add(new TaskModel(task))
 		this._updater()
 	},
@@ -44,14 +44,14 @@ export const TodoListView = React.createClass({
 	},
 
 	render: function() {
-			// var taskColl = this.state.taskColl
+			var taskColl = this.state.taskColl
 			console.log(this.state, "<< Top Level STATE")
 			return (
 				<div className="container-fluid">
 					<Nav />
 					<TaskBar />	
 					<TaskAdder adderFunc={this._addTask} />
-					<TaskList updater={this._updater} taskColl ={this.state.taskColl}/>
+					<TaskList updater={this._updater} taskColl={taskColl}/>
 				</div>
 			)
 		}
@@ -136,6 +136,7 @@ export const TaskList = React.createClass({
 	},
 
 	render: function() {
+		console.log(this.props.taskColl)
 		return 	<div className="jumbotron">
 					{this.props.taskColl.map(this._createTask)}				
 			   	</div>
