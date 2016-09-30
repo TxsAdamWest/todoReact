@@ -50,7 +50,7 @@ export const TodoListView = React.createClass({
 				<div className="container-fluid">
 					<Nav />
 					<TaskBar />	
-					<TaskAdder adderFunc={this._handleAddTask} />
+					<TaskAdder adderFunc={this._addTask} />
 					<TaskList updater={this._updater} taskColl ={this.state.taskColl}/>
 				</div>
 			)
@@ -136,12 +136,9 @@ export const TaskList = React.createClass({
 	},
 
 	render: function() {
-		return <div className="jumbotron">
-						
-						<ul>
-							<li>{this.props.taskColl}</li>
-						</ul>
-				</div>
+		return 	<div className="jumbotron">
+					{this.props.taskColl.map(this._createTask)}				
+			   	</div>
 	}
 })
 
