@@ -32,9 +32,14 @@ export const TodoListView = React.createClass({
 		}
 	},
 
+	_addTask: function(){
+		this.state.taskColl.add(new TaskModel(task))
+		this._updater()
+	},
+
 	_updater: function(){
 		this.setState({
-			taskColl: this.state.test
+			taskColl: this.state.taskColl
 		})
 	},
 
@@ -45,7 +50,7 @@ export const TodoListView = React.createClass({
 				<div className="container-fluid">
 					<Nav />
 					<TaskBar />	
-					<TaskAdder />
+					<TaskAdder adderFunc={this._handleAddTask} />
 					<TaskList updater={this._updater} taskColl ={this.state.taskColl}/>
 				</div>
 			)
@@ -89,23 +94,24 @@ export const TaskAdder = React.createClass({
 
 	_handleAddTask: function(event){
 		event.preventDefault();
-		// var task = this.state.taskColl
-		// console.log("Form submitted!", task)
-		this.setState({ test: this.state.test + 1})
-
 		console.log('_handleAddTask fired!')
+		var taskEntry = event.target.value
+		// console.log("Form submitted!", task)
+		// this.setState({ taskColl: this.state.taskColl + 1})
 
+		this.props.adderFunc(taskEntry)
+		
 	},
 
-	_handleChange: function(event){
-		if(event.keyCode === 13){
-			var task = (event.target.value);
-			console.log(task);
-			// this.setState({ task: task });
-			// this.state.taskColl.add(new TaskModel(task))
-			event.target.value = ""
-		}
-	},
+	// _handleChange: function(event){
+	// 	if(event.keyCode === 13){
+	// 		var task = (event.target.value);
+	// 		console.log(task);
+	// 		this.setState({ task: task });
+	// 		this.state.taskColl.add(new TaskModel(task))
+	// 		event.target.value = ""
+	// 	}
+	// },
 
 	render: function(){
 		return(
@@ -114,7 +120,7 @@ export const TaskAdder = React.createClass({
 					<img className="hero" src={"http://i.imgur.com/EROSbyw.gif"} />
 				
 				<form onSubmit={this._handleAddTask}>
-					<input onKeyDown={this._handleChange} className="col-md-8" type="text" placeholder="What task is next?" />
+					<input className="col-md-8" type="text" placeholder="What task is next?" />
 					<button className="col-md-4 btn btn-lg btn-default">Add task</button>
 				</form>
 
@@ -125,14 +131,31 @@ export const TaskAdder = React.createClass({
 })
 
 export const TaskList = React.createClass({
+	_createTask: function(model){
+		return <Task updater={this.props._updater} taskModel={model} />
+	},
 
 	render: function() {
 		return <div className="jumbotron">
 						
 						<ul>
-							<li>{this.props.testState}</li>
+							<li>{this.props.taskColl}</li>
 						</ul>
 				</div>
+	}
+})
+
+export const Task = React.createClass({
+
+	render: function(){
+		var taskModel = this.props.taskModel
+
+		return 
+			<div className="task">
+				<p>{taskModel.get("name")}</p>
+				<p>{taskModel.get("status")}</p>
+			</div>
+
 	}
 })
 
