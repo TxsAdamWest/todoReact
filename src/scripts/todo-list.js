@@ -1,11 +1,11 @@
+//Dependencies
 import React , { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Image } from 'react';
 
 //Models
-import {TaskModel} from './todos';
-import {TaskCollection} from './todos';
-
+import {TaskModel} from './models';
+import {TaskCollection} from './models';
 
 
 //Views
@@ -27,13 +27,15 @@ export const TodoListView = React.createClass({
 	getInitialState: function(){
 		return {
 			taskColl: this.props.taskColl,
-			// taskColl: 1,
 			viewType: 'all'
 		}
 	},
 
-	_addTask: function(task){
-		this.state.taskColl.add(new TaskModel(task))
+	_addTask: function(newTask){
+		console.log("_addTask fired!")
+		console.log(this.state)
+		console.log(TaskModel)
+		this.state.taskColl.add(new TaskModel(newTask))
 		this._updater()
 	},
 

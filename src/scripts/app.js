@@ -1,16 +1,17 @@
+//Dependencies
 import React, {component} from 'react';
 import ReactDOM from 'react-dom';
 import Backbone from 'backbone';
 
-//Components
+//View Components
 import {SplashView} from './todo-list';
 import {TodoListView} from './todo-list';
 
 //Models
-import {todos} from './todos';
+import {TaskModel} from './models';
 import {TaskCollection} from './models';
 
-
+//Main App / Router
 const app = function() {
 
 	const router = Backbone.Router.extend({
