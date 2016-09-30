@@ -99,15 +99,26 @@ export const Nav = React.createClass({
 
 export const TaskAdder = React.createClass({
 
-	_handleAddTask: function(event){
-		event.preventDefault();
-		console.log('_handleAddTask fired!')
-		var taskEntry = event.target.value
-		// console.log("Form submitted!", task)
-		// this.setState({ taskColl: this.state.taskColl + 1})
+	// Form Verison
+	// _handleAddTask: function(event){
+	// 	event.preventDefault();
+	// 	console.log('_handleAddTask fired! Event is >> ', event)
+	// 	var taskEntry = event.target.value
+	// 	console.log("Form submitted!", taskEntry)
+	// 	// this.setState({ taskColl: this.state.taskColl + 1})
 
-		this.props.adderFunc(taskEntry)
+	// 	this.props.adderFunc(taskEntry)
 		
+	// },
+
+	_handleAddTask: function(event){
+		if(event.keyCode === 13){
+			console.log('_handleAddTask fired! Event is >> ', event)
+			var taskEntry = event.target.value
+			console.log("taskEntry is: ", taskEntry)
+
+			this.props.adderFunc(taskEntry)
+		}
 	},
 
 	// _handleChange: function(event){
@@ -127,7 +138,7 @@ export const TaskAdder = React.createClass({
 					<img className="hero" src={"http://i.imgur.com/EROSbyw.gif"} />
 				
 				<form onSubmit={this._handleAddTask}>
-					<input className="col-md-8" type="text" placeholder="What task is next?" />
+					<input onKeyDown={this._handleAddTask} className="col-md-8" type="text" placeholder="What task is next?" />
 					<button className="col-md-4 btn btn-lg btn-default">Add task</button>
 				</form>
 
@@ -160,7 +171,7 @@ export const Task = React.createClass({
 		console.log(taskModel, "<< rendering taskModel")
 		return (
 			<div className="task">
-				<p>{taskModel.get("name")}</p>
+				<p>{taskModel.get("task")}</p>
 				<p>{taskModel.get("status")}</p>
 				<button onClick={this._deleteTask} className="btn btn-lg btn-danger"> X </button>
 			</div>
