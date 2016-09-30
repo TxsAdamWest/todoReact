@@ -152,7 +152,7 @@ export const TaskAdder = React.createClass({
 
 export const TaskList = React.createClass({
 	_createTask: function(model){
-		return <Task updater={this.props._updater} remover={this.props.remover} taskModel={model} key={this.cid}/>
+		return <Task updater={this.props.updater} remover={this.props.remover} taskModel={model} key={this.cid}/>
 	},
 
 	render: function() {
@@ -168,13 +168,24 @@ export const Task = React.createClass({
 		this.props.remover(this.props.taskModel)
 	},
 
+	_checkComplete: function(taskModel) {
+	  // console.log(this.props, "<< gimme my props")
+   //    console.log("_selectStatus fired!")
+   //    console.log(this.props.taskModel, "<< isComplete status BEFORE")
+
+      	if(this.props.taskModel.get('isComplete') === false){
+      		this.props.taskModel.set({isComplete: true})
+      		// console.log(this.props.taskModel.get('isComplete'), "<< isComplete status AFTER")
+      		this.props.updater()
+  		}
+  		// console.log(this.props.taskModel, " << One last check.")
+     },
+
 	render: function(){
 		var taskModel = this.props.taskModel
-		console.log(taskModel, "<< rendering taskModel")
 		return (
 			<div className="task">
-				<p>{taskModel.get("task")}</p>
-				<p>{taskModel.get("status")}</p>
+				<p>{taskModel.get("task")}<input value={taskModel} onChange={this._checkComplete} className="checkbox" type="checkbox" /></p>
 				<button onClick={this._deleteTask} className="btn btn-lg btn-danger"> X </button>
 			</div>
 		)

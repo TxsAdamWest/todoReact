@@ -4,7 +4,7 @@ import Backbone from 'backbone';
 export const TaskModel = Backbone.Model.extend({
 
 	defaults: {
-		status: 'Underway'
+		isComplete: false
 	},
 
 	initialize: function(newTask) {
