@@ -1,7 +1,6 @@
 import Backbone from 'backbone';
 
-//models go here
-
+//Models
 export const TaskModel = Backbone.Model.extend({
 
 	defaults: {
@@ -13,6 +12,7 @@ export const TaskModel = Backbone.Model.extend({
 	} 
 })
 
+//Collection
 export const TaskCollection = Backbone.Collection.extend({
 	model: TaskModel
 })

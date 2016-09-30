@@ -21,14 +21,14 @@ const app = function() {
 		},
 
 		showSignIn: function() {
-			console.log('ROUTER: >> showSignIn')
+			console.log('ROUTER: >> home')
 			ReactDOM.render(<SplashView />, document.querySelector('.container'))
 		},
 
 
 		home: function() {
 			console.log('ROUTER: >> showAllTasks')
-			ReactDOM.render(<TodoListView tasklist={new TaskCollection()}/>,document.querySelector('.container'))
+			ReactDOM.render(<TodoListView taskColl={new TaskCollection()}/>,document.querySelector('.container'))
 		},
 
 		redirect: function() {
