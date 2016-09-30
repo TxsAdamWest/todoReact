@@ -134,7 +134,7 @@ export const TaskAdder = React.createClass({
 
 export const TaskList = React.createClass({
 	_createTask: function(model){
-		return <Task updater={this.props._updater} taskModel={model} />
+		return <Task updater={this.props._updater} taskModel={model} key={this.cid}/>
 	},
 
 	render: function() {
