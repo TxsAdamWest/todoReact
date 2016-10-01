@@ -197,8 +197,7 @@ export const Task = React.createClass({
 		var taskModel = this.props.taskModel
 		return (
 			<div className="task">
-				<p>{taskModel.get("task")}<input value={taskModel} onChange={this._checkComplete} className="checkbox" type="checkbox" /></p>
-				<button onClick={this._deleteTask} className="btn btn-lg btn-danger"> X </button>
+				<p><input value={taskModel} onChange={this._checkComplete} className="checkbox" type="checkbox" />{taskModel.get("task")}<button onClick={this._deleteTask} className="btn btn-lg btn-danger xbox"> X </button></p>
 			</div>
 		)
 			
