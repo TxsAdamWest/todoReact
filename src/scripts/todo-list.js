@@ -32,7 +32,7 @@ export const TodoListView = React.createClass({
 	},
 
 	_viewSelect: function(event){
-		console.log("_viewSelect fired!")
+		// console.log("_viewSelect fired!")
 		var viewValue = event.target.value
 
 		this.setState({
@@ -41,9 +41,7 @@ export const TodoListView = React.createClass({
 	},
 
 	_addTask: function(newTask){
-		console.log("_addTask fired!")
-		// console.log(this.state)
-		// console.log(TaskModel)
+		// console.log("_addTask fired!")
 		this.state.taskColl.add(new TaskModel(newTask))
 		this._updater()
 	},
@@ -110,37 +108,18 @@ export const TaskAdder = React.createClass({
 
 	// Form Version
 	_handleAddTask: function(event){
-		var taskForm =document.getElementById("submit")
-		event.preventDefault();
-		console.log('_handleAddTask fired! Event is >> ', event)
-		var taskEntry = taskForm.elements[0].value
-		console.log("Form submitted!", taskEntry)
+		var taskForm = document.getElementById("submit")
+		if(taskForm.elements[0].value) {
+			event.preventDefault();
+			console.log('_handleAddTask fired! Event is >> ', event)
+			var taskEntry = taskForm.elements[0].value
+			console.log("Form submitted!", taskEntry)
 
-		this.props.adderFunc(taskEntry)
-		taskForm.reset()
+			this.props.adderFunc(taskEntry)
+			taskForm.reset()
+		}
+
 	},
-
-	// _handleAddTask: function(event){
-	// 	console.log(event)
-	// 	if(event.keyCode === 13){
-	// 		console.log('_handleAddTask fired! Event is >> ', event)
-	// 		var taskEntry = event.target.value
-	// 		console.log("taskEntry is: ", taskEntry)
-
-	// 		this.props.adderFunc(taskEntry)
-	// 		event.target.value = ''
-	// 	}
-	// },
-
-	// _handleChange: function(event){
-	// 	if(event.keyCode === 13){
-	// 		var task = (event.target.value);
-	// 		console.log(task);
-	// 		this.setState({ task: task });
-	// 		this.state.taskColl.add(new TaskModel(task))
-	// 		event.target.value = ""
-	// 	}
-	// },
 
 	render: function(){
 		return(
@@ -149,7 +128,7 @@ export const TaskAdder = React.createClass({
 					<img className="hero" src={"http://i.imgur.com/EROSbyw.gif"} />
 				
 				<form onSubmit={this._handleAddTask} id="submit">
-					<input className="col-md-8" type="text" placeholder="What task is next?" />
+					<input required id="task-input" className="col-md-8" type="text" placeholder="What task is next?" />
 					<button className="col-md-4 btn btn-lg btn-default">Add task</button>
 				</form>
 
