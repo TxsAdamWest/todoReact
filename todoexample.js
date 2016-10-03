@@ -6,7 +6,6 @@ import polyfill from "babel-polyfill"
 // if you uncomment 'universal-utils' below, you can comment out this line
 import fetch from "isomorphic-fetch"
 
-
 import DOM from 'react-dom'
 import React, {Component} from 'react'
 import Backbone from 'backbone'
