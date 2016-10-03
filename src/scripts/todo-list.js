@@ -195,11 +195,11 @@ export const TodoListView = React.createClass({
  const TaskBar = React.createClass({
 	render: function(){
 		return(
-        		<div className="container todo-container">
-        			<div className="task-bar">
-        				<button className="btn btn-lg btn-warning" onClick={this.props.viewSelector} >All</button>
-        				<button className="btn btn-lg btn-info" onClick={this.props.viewSelector} >Current</button>
-        				<button className="btn btn-lg btn-primary" onClick={this.props.viewSelector} >Completed</button>
+        		<div className="todo-container">
+        			<div className="row task-bar">
+        				<div className="col-md-4"><button className="btn btn-lg btn-warning" onClick={this.props.viewSelector} >All</button></div>
+        				<div className="col-md-4"><button className="btn btn-lg btn-info" onClick={this.props.viewSelector} >Current</button></div>
+        				<div className="col-md-4"><button className="btn btn-lg btn-primary" onClick={this.props.viewSelector} >Completed</button></div>
 					</div>
 				</div>
 
