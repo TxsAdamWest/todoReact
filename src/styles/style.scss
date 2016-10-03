@@ -81,8 +81,38 @@
 // Images
 .hero {
 	zoom: 200%;
+	height: 200px;
+	margin-left: -30px;
 }
 
+@media only screen and (max-width: 500px) {
+    .hero {
+    	margin-left: -70px;
+    }
+
+    .task-adder {
+
+		.btn{
+			width: 100%;
+		}
+
+		.submit{
+			margin-left: 2px;
+		}
+
+		input {
+			border: none;
+			line-height: 45px;
+			width: 100%;
+			outline: none;
+		}
+
+		input:focus {
+			// background-color: cyan;
+		}
+
+	}
+}
 
 
 
