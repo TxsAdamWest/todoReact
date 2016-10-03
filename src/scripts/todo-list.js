@@ -62,9 +62,10 @@ export const TodoListView = React.createClass({
 			return (
 				<div className="container-fluid">
 					<Nav />
-					<TaskBar viewSelector={this._viewSelect}/>	
-					<TaskAdder adderFunc={this._addTask} />
+					<TaskBar viewSelector={this._viewSelect}/>
+					<HeroContainer />	
 					<TaskList updater={this._updater} remover={this._removeTask} taskColl={taskColl}/>
+					<TaskAdder adderFunc={this._addTask} />
 				</div>
 			)
 		}
@@ -123,7 +124,6 @@ export const TaskAdder = React.createClass({
 	render: function(){
 		return(
 			<div className="container task-adder">
-					<img className="hero" src={"http://i.imgur.com/EROSbyw.gif"} />
 				
 				<form onSubmit={this._handleAddTask} id="submit">
 					<input required id="task-input" type="text" placeholder="What task is next?" />
@@ -135,6 +135,17 @@ export const TaskAdder = React.createClass({
 	}
 })
 
+export const HeroContainer = React.createClass({
+	render: function(){ 
+		return (
+			<div className="col-xs-6 hero-container">
+				<img className="hero" src={"http://i.imgur.com/EROSbyw.gif"} />
+			</div>
+		)
+
+	}
+})
+
 export const TaskList = React.createClass({
 	_createTask: function(model){
 		return <Task updater={this.props.updater} remover={this.props.remover} taskModel={model} key={this.cid}/>
@@ -142,7 +153,7 @@ export const TaskList = React.createClass({
 
 	render: function() {
 		// console.log(this.props.taskColl)
-		return 	<div className="jumbotron">
+		return 	<div className="col-xs-6 jumbotron">
 					{this.props.taskColl.map(this._createTask)}				
 			   	</div>
 	}
