@@ -32,7 +32,6 @@ export const TodoListView = React.createClass({
 	},
 
 	_viewSelect: function(event){
-		// console.log("_viewSelect fired!")
 		var viewValue = event.target.value
 
 		this.setState({
@@ -123,16 +122,14 @@ export const TaskAdder = React.createClass({
 
 	render: function(){
 		return(
-			<div className="task-adder">
-				<div className="container">
+			<div className="container task-adder">
 					<img className="hero" src={"http://i.imgur.com/EROSbyw.gif"} />
 				
 				<form onSubmit={this._handleAddTask} id="submit">
-					<input required id="task-input" className="col-md-8" type="text" placeholder="What task is next?" />
-					<button className="col-md-4 btn btn-lg btn-default">Add task</button>
+					<input required id="task-input" type="text" placeholder="What task is next?" />
+					<button className="btn btn-lg btn-default">Add task</button>
 				</form>
 
-				</div>
 			</div>
 		)
 	}
