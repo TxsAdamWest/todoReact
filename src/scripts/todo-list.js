@@ -73,7 +73,7 @@ export const TodoListView = React.createClass({
 })
 
 //Components
-export const Nav = React.createClass({
+ const Nav = React.createClass({
 	render: function(){
 		return(
 			<nav className="navbar navbar-inverse navbar-fixed-top">
@@ -104,7 +104,7 @@ export const Nav = React.createClass({
 	}
 })
 
-export const TaskAdder = React.createClass({
+ const TaskAdder = React.createClass({
 
 	// Form Version
 	_handleAddTask: function(event){
@@ -135,7 +135,7 @@ export const TaskAdder = React.createClass({
 	}
 })
 
-export const HeroContainer = React.createClass({
+ const HeroContainer = React.createClass({
 	render: function(){ 
 		return (
 			<div className="col-xs-6 hero-container">
@@ -146,20 +146,20 @@ export const HeroContainer = React.createClass({
 	}
 })
 
-export const TaskList = React.createClass({
+ const TaskList = React.createClass({
 	_createTask: function(model){
 		return <Task updater={this.props.updater} remover={this.props.remover} taskModel={model} key={this.cid}/>
 	},
 
 	render: function() {
 		// console.log(this.props.taskColl)
-		return 	<div className="col-xs-6 jumbotron">
+		return 	<div className="col-xs-6 jumbotron task-list">
 					{this.props.taskColl.map(this._createTask)}				
 			   	</div>
 	}
 })
 
-export const Task = React.createClass({
+ const Task = React.createClass({
 	_deleteTask: function(){
 		this.props.remover(this.props.taskModel)
 	},
@@ -192,7 +192,7 @@ export const Task = React.createClass({
 	}
 })
 
-export const TaskBar = React.createClass({
+ const TaskBar = React.createClass({
 	render: function(){
 		return(
         		<div className="container todo-container">
@@ -207,7 +207,7 @@ export const TaskBar = React.createClass({
 	}
 })
 
-export const Header = React.createClass({
+ const Header = React.createClass({
 	render: function(){
 		return(
 			<div className="jumbotron">
