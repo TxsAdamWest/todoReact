@@ -143,6 +143,19 @@ export const TodoListView = React.createClass({
 	}
 })
 
+//Pick up here.
+ const Projectile = React.createClass({
+ 	_createProjectile : function(){
+
+ 	},
+
+ 	render: function(){
+ 		return (
+ 			<img src="http://i.imgur.com/Eu9WeGG.gif"/>
+ 		)
+ 	}
+ })
+
  const TaskList = React.createClass({
 	_createTask: function(model){
 		return <Task updater={this.props.updater} remover={this.props.remover} taskModel={model} key={this.cid}/>
