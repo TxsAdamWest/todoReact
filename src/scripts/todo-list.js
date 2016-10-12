@@ -89,13 +89,10 @@ export const TodoListView = React.createClass({
 			        </div>
 			        <div id="navbar" className="navbar-collapse collapse">
 			          <form className="navbar-form navbar-right">
+			            
 			            <div className="form-group">
-			              <input type="text" placeholder="Email" className="form-control" />
+			            	<a href="#home" id="start-button" className="btn btn-success">Begin</a>
 			            </div>
-			            <div className="form-group">
-			              <input type="password" placeholder="Password" className="form-control" />
-			            </div>
-			            <button type="submit" className="btn btn-success">Sign in</button>
 			          </form>
 			        </div>
 			      </div>
