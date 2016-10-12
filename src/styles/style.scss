@@ -53,8 +53,8 @@
 			outline: none;
 		}
 
-		input:focus {
-			// background-color: cyan;
+		#task-input:required {
+			border: 2px solid red;
 		}
 
 }

@@ -58,11 +58,11 @@ export const TodoListView = React.createClass({
 
 	render: function() {
 			var taskColl = this.state.taskColl
+
 			console.log(this.state, "<< Top Level STATE")
 			return (
 				<div className="container-fluid">
 					<Nav />
-					<TaskBar viewSelector={this._viewSelect}/>
 					<HeroContainer />	
 					<TaskList updater={this._updater} remover={this._removeTask} taskColl={taskColl}/>
 					<TaskAdder adderFunc={this._addTask} />
@@ -199,7 +199,7 @@ export const TodoListView = React.createClass({
         			<div className="row task-bar">
         				<div className="col-md-4 button-container"><button className="btn btn-lg btn-warning" onClick={this.props.viewSelector} >All</button></div>
         				<div className="col-md-4 button-container"><button className="btn btn-lg btn-info" onClick={this.props.viewSelector} >Current</button></div>
-        				<div className="col-md-4 button-container"><button className="btn btn-lg btn-primary" onClick={this.props.viewSelector} >Completed</button></div>
+        				<div className="col-md-4 button-container"><button className="btn btn-lg btn-primary" onClick={this.props.viewSelector}>Completed</button></div>
 					</div>
 				</div>
 
