@@ -180,12 +180,18 @@ export const TodoListView = React.createClass({
       	if(this.props.taskModel.get('isComplete') === false){
       		this.props.taskModel.set({isComplete: true})
       		this.props.updater()
+      		var checkedTask = document.querySelector(".task")
+      		checkedTask.style.textDecoration = 'line-through'
+      		console.log("Strike through")
+
       		console.log("New isComplete status is >> " , this.props.taskModel.get("isComplete"))
 
   		}
   		else {
       		this.props.taskModel.set({isComplete: false})
       		this.props.updater()
+      		var uncheckedTask = document.querySelector(".task")
+      		uncheckedTask.style.textDecoration = 'none'
       		console.log("New isComplete status is >> " , this.props.taskModel.get("isComplete"))
   		}
      },
