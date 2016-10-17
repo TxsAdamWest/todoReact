@@ -176,11 +176,13 @@ export const TodoListView = React.createClass({
 
 	_checkComplete: function(taskModel) {
       console.log("_selectStatus fired!")
+      console.log(this.props.taskModel.cid)
 
       	if(this.props.taskModel.get('isComplete') === false){
       		this.props.taskModel.set({isComplete: true})
       		this.props.updater()
-      		var checkedTask = document.querySelector(".task")
+      		//pick up here  :  We have unique element id's .  now to change styles using that unique id
+      		var checkedTask = document.getElementById(".task")
       		checkedTask.style.textDecoration = 'line-through'
       		console.log("Strike through")
 
@@ -198,8 +200,9 @@ export const TodoListView = React.createClass({
 
 	render: function(){
 		var taskModel = this.props.taskModel
+		var taskCid = taskModel.cid
 		return (
-			<div className="task">
+			<div className="task" id={taskCid}>
 				<p><input value={taskModel} onChange={this._checkComplete} className="checkbox" type="checkbox" />{taskModel.get("task")}<button onClick={this._deleteTask} className="btn-danger xbox"> X </button></p>
 			</div>
 		)
