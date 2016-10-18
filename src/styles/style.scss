@@ -118,6 +118,29 @@ body {
 	}
 }
 
+//Animations
+
+@keyframes fontbulger {
+  0% {
+    font-size: 20px;
+  }
+  30% {
+    font-size: 30px;
+  }
+  100% {
+    font-size: 20px;
+  }
+}
+
+@keyframes infinite-spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 
 
 
