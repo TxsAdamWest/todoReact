@@ -103,22 +103,31 @@ export const TodoListView = React.createClass({
 })
 
  const StartButton = React.createClass({
- 	getInitialState: function(){
- 		return ({
- 			status: 'Begin'
- 		})
- 	},
+ 	// getInitialState: function(){
+ 	// 	return ({
+ 	// 		status: 'Begin'
+ 	// 	})
+ 	// },
 
- 	ComponentDidMount: function(){
- 		console.log("Component mounted!")
- 		this.setState = {
- 			status: 'changed'
- 		}
- 	},
+ 	// _changeStatus: function(){
+ 	// 	console.log("State changed!")
+ 	// 	var buttonText = document.getElementById("start-button").innerHTML
+ 	// 	if ( buttonText === "Begin") {
+ 	// 		this.setState({
+ 	// 			status: 'Return'
+ 	// 		})
+ 	// 	}
+
+ 	// 	else if ( buttonText === "Return") {
+ 	// 		this.setState({
+ 	// 			status: 'Begin'
+ 	// 		})
+ 	// 	}
+ 	// },
 
  	render: function(){
  		return (
- 			<a href="#home" id="start-button" className="btn btn-success">{this.state.status}</a>
+ 			<a href="#home" id="start-button" onClick={this._changeStatus} className="btn btn-success">Begin</a>
  		)
 
  	}
