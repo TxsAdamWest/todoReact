@@ -92,7 +92,7 @@ export const TodoListView = React.createClass({
 			          <form className="navbar-form navbar-right">
 			            
 			            <div className="form-group">
-			            	<a href="#home" id="start-button" className="btn btn-success">Begin</a>
+			            	<StartButton status={this.state}/>
 			            </div>
 			          </form>
 			        </div>
@@ -101,6 +101,28 @@ export const TodoListView = React.createClass({
 		)
 	}
 })
+
+ const StartButton = React.createClass({
+ 	getInitialState: function(){
+ 		return ({
+ 			status: 'Begin'
+ 		})
+ 	},
+
+ 	ComponentDidMount: function(){
+ 		console.log("Component mounted!")
+ 		this.setState = {
+ 			status: 'changed'
+ 		}
+ 	},
+
+ 	render: function(){
+ 		return (
+ 			<a href="#home" id="start-button" className="btn btn-success">{this.state.status}</a>
+ 		)
+
+ 	}
+ })
 
  const TaskAdder = React.createClass({
 
