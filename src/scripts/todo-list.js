@@ -2,6 +2,9 @@
 import React , { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Image } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-transition-group';
+
+console.log(ReactCSSTransitionGroup)
 
 //Models
 import {TaskModel} from './models';
@@ -194,10 +197,22 @@ export const TodoListView = React.createClass({
 	},
 
 	render: function() {
+
+		const transitionOptions = {
+			transitionName: 'fade',
+			transitionEnterTimeout: '500',
+			transitionLeaveTimeout: '500'
+
+		};
+
+		console.log(transitionOptions)
+
 		// console.log(this.props.taskColl)
-		return 	<div className="col-xs-6 jumbotron task-list">
-					{this.props.taskColl.map(this._createTask)}				
-			   	</div>
+		return 	<ul className="list-group col-xs-6 jumbotron task-list">
+					<ReactCSSTransitionGroup {...transitionOptions}>
+						{this.props.taskColl.map(this._createTask)}
+					</ReactCSSTransitionGroup>				
+			   	</ul>
 	}
 })
 
@@ -233,10 +248,11 @@ export const TodoListView = React.createClass({
 	render: function(){
 		var taskModel = this.props.taskModel
 		var taskCid = taskModel.cid
+
 		return (
-			<div className="task" id={taskCid}>
+			<li className="task" id={taskCid}>
 				<p><input value={taskModel} onChange={this._checkComplete} className="checkbox" type="checkbox" />{taskModel.get("task")}<button onClick={this._deleteTask} className="btn-danger xbox"> X </button></p>
-			</div>
+			</li>
 		)
 			
 

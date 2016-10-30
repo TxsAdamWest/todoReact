@@ -5,7 +5,7 @@
 }
 
 body {
-	background-color: cyan;
+	// background-color: cyan;
 }
 
 //Jumbotron Contents
@@ -58,7 +58,8 @@ body {
 		}
 
 		#task-input:required {
-			border: 2px solid red;
+			// border: 2px solid red;
+			// transition: 1s ease all;
 		}
 
 }
@@ -119,6 +120,28 @@ body {
 }
 
 //Animations
+
+	//Start of animation for tasks.
+.fade-enter {
+	right: 100px;
+}
+
+	//End of animation for tasks.
+.fade-enter-active {
+	right: 0px;
+	transition: .5s ease-in all;
+}
+
+.fade-leave {
+	right: 0px;
+	opacity: 1;
+}
+
+.fade-leave-active {
+	right: -100px;
+	opacity: 0;
+	transition: .5s ease-out all;
+}
 
 @keyframes fontbulger {
   0% {
