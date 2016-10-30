@@ -10,7 +10,7 @@ console.log(ReactCSSTransitionGroup)
 import {TaskModel} from './models';
 import {TaskCollection} from './models';
 
-
+var counter = 0
 //Views
 export const SplashView = React.createClass({
 
@@ -199,21 +199,24 @@ export const TodoListView = React.createClass({
 	render: function() {
 
 		const transitionOptions = {
-			transitionName: 'fade',
+			transitionName: "fade",
 			transitionEnterTimeout: '500',
 			transitionLeaveTimeout: '500'
 
 		};
 
+		counter += 1
+		console.log(counter)
 		console.log(transitionOptions)
 
 		// console.log(this.props.taskColl)
-		return 	<ul className="list-group col-xs-6 jumbotron task-list">
+		return 	(
+				<ul className="list-group col-xs-6 jumbotron task-list">
 					<ReactCSSTransitionGroup {...transitionOptions}>
 						{this.props.taskColl.map(this._createTask)}
 					</ReactCSSTransitionGroup>				
 			   	</ul>
-	}
+	)}
 })
 
  const Task = React.createClass({
@@ -229,7 +232,7 @@ export const TodoListView = React.createClass({
       		this.props.taskModel.set({isComplete: true})
       		this.props.updater()
       		//pick up here  :  We have unique element id's .  now to change styles using that unique id
-      		var checkedTask = document.getElementById(".task")
+      		var checkedTask = document.querySelector(".task")
       		checkedTask.style.textDecoration = 'line-through'
       		console.log("Strike through")
 
@@ -250,7 +253,7 @@ export const TodoListView = React.createClass({
 		var taskCid = taskModel.cid
 
 		return (
-			<li className="task" id={taskCid}>
+			<li className= "task" id={taskCid}>
 				<p><input value={taskModel} onChange={this._checkComplete} className="checkbox" type="checkbox" />{taskModel.get("task")}<button onClick={this._deleteTask} className="btn-danger xbox"> X </button></p>
 			</li>
 		)

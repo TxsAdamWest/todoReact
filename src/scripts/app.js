@@ -2,6 +2,8 @@
 import React, {component} from 'react';
 import ReactDOM from 'react-dom';
 import Backbone from 'backbone';
+import ReactCSSTransitionGroup from 'react-addons-transition-group';
+
 
 //View Components
 import {SplashView} from './todo-list';
